@@ -145,30 +145,6 @@ function handleKeyUp(event) {
     }
 }
 
-
-//キーが離されたときに呼び出される関数
-function handleKeyUp(event) { 
-    const notes = document.getElementsByClassName('note');
-    for (let i = 0; i < notes.length; i++) {
-        notes[i].style.border = 'solid black 1px';
-    }
-
-    const key = event.key.toUpperCase();
-    if (oscillators[key]) {
-        stopPlayingFrequency(key);
-    }
-
-    // 離されたキーのブロックの強調表示を解除
-    const keyIndex = keyMap.indexOf(key);
-    const noteDiv = document.getElementById('note-' + keyIndex);
-    if (noteDiv) {
-        noteDiv.style.border = 'solid black 1px';
-    }
-}
-
-
-
-
 //初期化
 window.onload = () => { 
     generateScale();
@@ -176,10 +152,3 @@ window.onload = () => {
     window.addEventListener('keyup', handleKeyUp);
 };
 
-
-//初期化
-window.onload = () => { 
-    generateScale();
-    window.addEventListener('keydown', handleKeyDown);
-    window.addEventListener('keyup', handleKeyUp);
-};
