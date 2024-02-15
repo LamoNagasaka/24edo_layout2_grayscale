@@ -8,7 +8,7 @@ let oscillators = {};  //オシレーターを管理するためのオブジェ�
 //音の再生
 function startPlayingFrequency(frequency, key) {
     const oscillator = audioContext.createOscillator();
-    oscillator.type = 'sawtooth'; //
+    oscillator.type = 'sine'; //サイン音
     oscillator.frequency.setValueAtTime(frequency, audioContext.currentTime);
     oscillator.connect(audioContext.destination);
     oscillator.start();
